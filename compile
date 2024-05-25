@@ -1,0 +1,19 @@
+#!/bin/sh
+
+BUILD_DIR=$1
+
+echo "-----> Installing SoX"
+
+# Download SoX source
+SOX_VERSION="14.4.2"
+SOX_URL="https://sourceforge.net/projects/sox/files/sox/${SOX_VERSION}/sox-${SOX_VERSION}.tar.gz"
+curl -L $SOX_URL -o /tmp/sox.tar.gz
+
+# Extract and install SoX
+tar -xzf /tmp/sox.tar.gz -C /tmp
+cd /tmp/sox-${SOX_VERSION}
+./configure --prefix=$BUILD_DIR
+make
+make install
+
+echo "-----> SoX installation completed"
