@@ -1,4 +1,0 @@
-#!/bin/sh
-
-echo "SoX"
-exit 0
